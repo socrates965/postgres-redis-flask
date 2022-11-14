@@ -20,5 +20,5 @@ COPY ./uwsgi-app.ini ./
 
 ENV PYTHONPATH /docker-flask-app
 
-#CMD ["uwsgi", "./uwsgi-app.ini"]
+CMD ["uwsgi", "./uwsgi-app.ini"]
 RUN sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000
