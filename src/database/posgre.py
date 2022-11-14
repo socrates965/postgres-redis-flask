@@ -4,8 +4,8 @@ import os
 
 def get_db_engine():
     load_dotenv(find_dotenv())
-    username = os.getenv("USERNAME")
-    password = os.getenv("PASSWORD")
+    username = "admin"
+    password = "admin"
 
     connection_str = "postgresql+psycopg2://{0}:{1}@postgres_db/case_db".format(username, password)
 
