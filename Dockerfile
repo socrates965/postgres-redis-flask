@@ -34,4 +34,4 @@ EXPOSE 9191
 
 #RUN ["chmod", "+x", "/docker-flask-app/src/app/app.py"]
 
-CMD ["src/app/app.py"]
+CMD ["python","src/app/app.py"]
