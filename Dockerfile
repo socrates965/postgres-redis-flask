@@ -14,12 +14,13 @@ RUN apk update && apk add --no-cache\
 COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
 
+USER 1001
 #COPY ./.env ./
 COPY ./src ./src
 COPY ./uwsgi-app.ini ./
 
-RUN chgrp -R 0 /docker-flask-app/src/app && \
-    chmod -R g=u /docker-flask-app/src/app
+#RUN chgrp -R 0 /docker-flask-app/src/app && \
+#    chmod -R g=u /docker-flask-app/src/app
 
 ENV PYTHONPATH /docker-flask-app
 
@@ -30,6 +31,7 @@ EXPOSE 9191
 #RUN adduser -D worker
 #USER worker
 #COPY --chown=worker:worker . .
-USER 1001
+
+#RUN ["chmod", "+x", "/docker-flask-app/src/app/app.py"]
 
 CMD ["src/app/app.py"]
