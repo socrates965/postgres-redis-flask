@@ -22,4 +22,5 @@ ENV PYTHONPATH /docker-flask-app
 
 EXPOSE 80
 EXPOSE 9191
-CMD ["uwsgi", "./uwsgi-app.ini"]
+#CMD ["uwsgi", "./uwsgi-app.ini"]
+CMD ["src/app/app.py"]
