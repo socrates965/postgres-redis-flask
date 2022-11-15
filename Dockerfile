@@ -24,7 +24,7 @@ RUN chgrp -R 0 /docker-flask-app/src/app && \
 
 ENV PYTHONPATH /docker-flask-app
 
-EXPOSE 80
+EXPOSE 8080
 EXPOSE 9191
 #CMD ["uwsgi", "./uwsgi-app.ini"]
 

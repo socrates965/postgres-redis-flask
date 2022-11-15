@@ -68,4 +68,4 @@ def db_update(name):
         return redirect(url_for('db_display'))
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True, port=80)
+    app.run(host="0.0.0.0",port=8080, debug=True)

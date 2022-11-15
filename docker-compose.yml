@@ -6,7 +6,7 @@ services:
     container_name: flask-app-prod
     build: .
     ports:
-      - "80:80"
+      - "8080:8080"
     volumes:
       - ./src:/docker-flask-app/src
   postgres_db:
