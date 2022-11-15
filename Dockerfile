@@ -27,5 +27,8 @@ EXPOSE 80
 EXPOSE 9191
 #CMD ["uwsgi", "./uwsgi-app.ini"]
 
+RUN adduser -D worker
+USER worker
+COPY --chown=worker:worker . .
 
 CMD ["src/app/app.py"]
