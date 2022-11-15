@@ -11,6 +11,9 @@ RUN apk update && apk add --no-cache\
     linux-headers \ 
     pcre-dev
 
+RUN chgrp -R 0 /docker-flask-app/src/app && \
+    chmod -R g=u /docker-flask-app/src/app
+
 COPY ./requirements.txt ./
 RUN pip install -r requirements.txt
 
@@ -23,4 +26,6 @@ ENV PYTHONPATH /docker-flask-app
 EXPOSE 80
 EXPOSE 9191
 #CMD ["uwsgi", "./uwsgi-app.ini"]
+
+
 CMD ["src/app/app.py"]
