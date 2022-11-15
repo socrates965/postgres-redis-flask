@@ -5,7 +5,7 @@ from redis import Redis
 from src.database.posgre import get_db_engine
 
 app = Flask(__name__)
-redis = Redis(host='redis', port=6379)
+redis = Redis(host=os.environ.get('redis-host'), port=os.environ.get('redis-port'), password=os.environ.get('redis-password'))
 
 db_engine = get_db_engine()
 
