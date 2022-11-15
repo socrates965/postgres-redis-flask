@@ -20,4 +20,6 @@ COPY ./uwsgi-app.ini ./
 
 ENV PYTHONPATH /docker-flask-app
 
+EXPOSE 80
+EXPOSE 9191
 CMD ["uwsgi", "./uwsgi-app.ini"]
