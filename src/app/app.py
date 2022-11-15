@@ -3,9 +3,12 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for
 from redis import Redis
 from src.database.posgre import get_db_engine
+from dotenv import find_dotenv, load_dotenv
+load_dotenv(find_dotenv())
+import os
 
 app = Flask(__name__)
-redis = Redis(host=os.environ.get('redis-host'), port=os.environ.get('redis-port'), password=os.environ.get('redis-password'))
+redis = Redis(host=os.getenv('REDIS_HOST'), port=os.getenv('REDIS_PORT'), password=os.getenv('REDIS_PASSWORD'))
 
 db_engine = get_db_engine()
 

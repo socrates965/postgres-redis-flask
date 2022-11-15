@@ -4,11 +4,12 @@ import os
 
 def get_db_engine():
     load_dotenv(find_dotenv())
-    username = os.environ.get("postgres-username")
-    password = os.environ.get("postgres-password")
-    host = os.environ.get("postgres-host")
+    username = os.getenv("POSTGRES_USERNAME")
+    password = os.getenv("POSTGRES_PASSWORD")
+    host = os.getenv("POSTGRES_HOST")
+    port = os.getenv("POSTGRES_PORT")
 
-    connection_str = "postgresql+psycopg2://{0}:{1}@{2}/case_db".format(username, password, host)
+    connection_str = "postgresql+psycopg2://{0}:{1}@{2}:{3}/case_db".format(username, password, host, port)
 
     db_engine = create_engine(connection_str)
 
